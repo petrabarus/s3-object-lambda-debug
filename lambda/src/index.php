@@ -37,9 +37,8 @@ return function ($event, $context) {
             'RequestToken' => $requestToken,
         ]);   
     } catch (\Exception $ex) {
-        var_dump($ex->getMessage);
+        var_dump($ex->getMessage());
     }
-    var_dump($response);
     
     return [
         'statusCode' => 200,
