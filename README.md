@@ -4,25 +4,13 @@
 
 1. In the directory `cdk`, execute
 
-
 ```bash
 npm install
 cdk deploy
 ```
-It will output the CDK result including the name of the S3 Bucket and Lambda function.
+It will output the CDK result including the name of the S3 Bucket, Lambda function, and ARN of the S3 Object Lambda.
 
-2. In the directory `lambda` execute
-
-```bash
-composer install
-serverless deploy
-```
-
-It will display the name of the app.
-
-3. Create S3 Lambda Object Access point like the steps in the blog ![https://aws.amazon.com/blogs/aws/introducing-amazon-s3-object-lambda-use-your-code-to-process-data-as-it-is-being-retrieved-from-s3/](https://aws.amazon.com/blogs/aws/introducing-amazon-s3-object-lambda-use-your-code-to-process-data-as-it-is-being-retrieved-from-s3/).
-
-4. Execute S3 get object using AWS CLI to test. E.g.
+2. To test execute S3 get object using AWS CLI with the S3 Object Lambda access point name as bucket parameter. E.g.
 
 ```bash
 aws s3api get-object \
@@ -30,7 +18,7 @@ aws s3api get-object \
     --key data.txt data.txt
 ```
 
-5. It will show error.
+3. It will show error.
 
 ```text
 An error occurred (LambdaRuntimeError) when calling the GetObject operation (reached max retries: 4): Lambda function failed during execution.
